@@ -22,7 +22,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: checkout@v3
 
       # Create a directory to store artifacts
       - name: Create Directory
@@ -30,7 +30,7 @@ jobs:
 
       # Install NodeJS
       - name: Install Node
-        uses: actions/setup-node@v3
+        uses: setup-node@v3
         with:
           node-version: '17.x'
 
@@ -47,7 +47,7 @@ jobs:
 
       # Publish the Report
       - name: Publish Report
-        uses: actions/upload-artifact@v3
+        uses: upload-artifact@v3
         with:
           name: Reports
           path: SampleArtifact
