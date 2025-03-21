@@ -28,7 +28,7 @@ jobs:
 
       # Create a directory to store artifacts
       - name: Create Directory
-        run: mkdir SampleArtifact
+        run: mkdir -p SampleArtifact
 
       # Install NodeJS
       - name: Install Node
@@ -49,7 +49,7 @@ jobs:
 
       # Publish the Report
       - name: Publish Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Reports
           path: SampleArtifact
