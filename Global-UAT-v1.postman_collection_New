@@ -1,0 +1,865 @@
+{
+	"info": {
+		"_postman_id": "f7cbd6f8-4282-40ad-97e9-7cc1a2affc34",
+		"name": "Global-UAT-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11218423",
+		"_collection_link": "https://grey-zodiac-603001.postman.co/workspace/Global~874c2181-5617-4ba8-b26b-fc5c96db55db/collection/11218423-f7cbd6f8-4282-40ad-97e9-7cc1a2affc34?action=share&source=collection_link&creator=11218423"
+	},
+	"item": [
+		{
+			"name": "APIGEE Token UAT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"access_token_apigee\", jsonData.access_token);\r",
+							"console.log('hi' + jsonData);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "GvGRuPUmDXVPnuW9kYR94XWWAm3goRqb",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "wgJNWGC1laRXDq3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "grant_type",
+						"value": "client_credentials",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "GvGRuPUmDXVPnuW9kYR94XWWAm3goRqb",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "wgJNWGC1laRXDq3c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "HNbFvRTJ6CB1pFbWpqVRjeMs7j4a",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "UdpQXxoYWhUyETPaXvMG91NTbica",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "base_url/token",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salesforce Token UAT - Technical User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"access_token_salesforce\", jsonData.access_token);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "71985c0da65a46022297a2ddc3a3b056d5f8040430f5bd025d8d932b1df5a6ad4bc26300D7b0000004dBjEAI",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "db2e407dfa265c58e5c30c162f229f50a5b4386bc8c1000D7b0000004dBjEAI",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "apis.technicaluser@bridge-fo.com.uatbfo22",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "apisciamtechnicaluser#Idms1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://se--uatbfo22.my.salesforce.com/services/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"se--uatbfo22",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-UsersExistwith Emails",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"email\" : \"nandu.uat@getnada.com\",\r\n \"withGlobalUsers\" : true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/users/exist",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users",
+						"exist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-UsersExistwith FedId",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"federatedId\" : \"gb0027c4-7c49-daa6-0908-5991c4284ad2\",\r\n \"withGlobalUsers\" : true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/users/exist",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users",
+						"exist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-Create Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salutation\": \"Z001\",\r\n    \"firstName\": \"test\",\r\n    \"middleName\": \"apigee\",\r\n    \"lastName\": \"apigeeNov01\",\r\n    \"countryCode\": \"IN\",\r\n    \"mobilePhone\": \"8867423553\",\r\n    \"email\": \"uatperfapi.1@yopmail.com\",\r\n    \"languageCode\": \"en\",\r\n    \"emailOptIn\": \"Y\",\r\n    \"aboutMe\": \"test update user\",\r\n    \"street\": \"Bakers street\",\r\n    \"city\": \"New york\",\r\n    \"zipCode\": \"0001\",\r\n    \"stateOrProvinceCode\": \"07\",\r\n    \"county\": \"Newyork\",\r\n    \"pOBox\": \"741111\",\r\n    \"additionalAddress\": \"park view\",\r\n    \"suffix\": \"pvt ltd.\",\r\n    \"fax\": \"741-8529-451\",\r\n    \"userContext\": \"@Work\",\r\n    \"registrationSource\":\"IDMSWork\",\r\n    \"currency\": \"USD\",\r\n    \"companyName\": \"IDMSAPIGEE123456\",\r\n    \"companyCountryCode\": \"US\",\r\n    \"companyAdditionalAddress\": \"Tower-B,UnitechInfospace\",\r\n    \"classLevel1\": \"OM\",\r\n    \"classLevel2\": \"OM1\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/users",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put-Update Users",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salutation\": \"Z001\",\r\n    \"profileLastUpdateSource\": \"IDMSWork\",\r\n    \"firstName\": \"test\",\r\n    \"middleName\": \"apigee\",\r\n    \"lastName\": \"apigeeNov01\",\r\n    \"countryCode\": \"IN\",\r\n    \"languageCode\": \"en\",\r\n    \"emailOptIn\": \"Y\",\r\n    \"aboutMe\": \"test update user\",\r\n    \"street\": \"Bakers street\",\r\n    \"city\": \"New york\",\r\n    \"zipCode\": \"0001\",\r\n    \"stateOrProvinceCode\": \"07\",\r\n    \"county\": \"Newyork\",\r\n    \"pOBox\": \"741111\",\r\n    \"additionalAddress\": \"park view\",\r\n    \"suffix\": \"pvt ltd.\",\r\n    \"fax\": \"741-8529-451\",\r\n    \"userContext\": \"@Work\",\r\n    \"registrationSource\":\"IDMSWork\",\r\n    \"currency\": \"USD\",\r\n    \"companyName\": \"IDMSAPIGEE123456\",\r\n    \"companyCountryCode\": \"US\",\r\n    \"companyAdditionalAddress\": \"Tower-B,UnitechInfospace\",\r\n    \"classLevel1\": \"OM\",\r\n    \"classLevel2\": \"OM1\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/users",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Users profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/users",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put-updateAil users",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"aclType\": \"Application\",\r\n    \"acl\": \"HEROKU\",\r\n    \"operation\": \"Grant\",\r\n    \"profileLastUpdateSource\": \"IDMSHome\"\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/ail/gb0027c4-7c49-daa6-0908-5991c4284ad2",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"ail",
+						"gb0027c4-7c49-daa6-0908-5991c4284ad2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put-Bulkuserails",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 7AxNGCtPrkbqKd0lQGUZUTz2BuUk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requestBody\": {\r\n    \"userAils\":[\r\n        {\r\n            \"userFedID\":\"gb0027c4-7c49-daa6-0908-5991c4284ad2\",\r\n            \"ails\":[\r\n                {\r\n                    \"operation\":\"grant\",\r\n                    \"aclType\":\"Application\",\r\n                    \"acl\":\"Clipsal.com\"\r\n                },\r\n                {\r\n                    \"operation\":\"grant\",\r\n                    \"aclType\":\"Application\",\r\n                    \"acl\":\"PRMItalyClients\"\r\n                },\r\n                {\r\n                    \"operation\":\"revoke\",\r\n                    \"aclType\":\"Application\",\r\n                    \"acl\":\"AssetAdvisor\"\r\n                }\r\n              \r\n            ]\r\n        },\r\n        {\r\n            \"userFedID\":\"gb000a12-1c66-b1e1-e1b1-f998b19fb5b7\",\r\n            \"ails\": [\r\n                {\r\n                    \"operation\":\"GRANT\",\r\n                    \"aclType\":\"Application\",\r\n                    \"acl\":\"IDMSWork\"\r\n                },\r\n                {\r\n                    \"operation\":\"revoke\",\r\n                    \"aclType\":\"Application\",\r\n                    \"acl\":\"PRM\"\r\n                    }\r\n                ]\r\n        }\r\n       \r\n    ],\r\n    \"profileLastUpdateSource\":\"IDMSWork\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/bulkuserails",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"bulkuserails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-AppUserswith email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"appHash\": \"ejPmNlcDObUKwkWvLmpIGwakc\",\r\n     \"email\": \"nandu.uat@getnada.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/appusers",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"appusers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-App-Users with fed Id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"appHash\": \"ejPmNlcDObUKwkWvLmpIGwakc\",\r\n     \"federatedId\": \"gb0027c4-7c49-daa6-0908-5991c4284ad2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/appusers",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"appusers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-App-ListUsers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/appusers/list?apphash=m1OSTPxBjYYrgfL5ffWQs4dZXE&startdate=01/01/2018&enddate=06/12/2019",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"appusers",
+						"list"
+					],
+					"query": [
+						{
+							"key": "apphash",
+							"value": "m1OSTPxBjYYrgfL5ffWQs4dZXE"
+						},
+						{
+							"key": "startdate",
+							"value": "01/01/2018"
+						},
+						{
+							"key": "enddate",
+							"value": "06/12/2019"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Ail-IDMSFederatedId",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer txwi6KO65vKUqi0oQ7mdLO4GFWgb",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/ail/gb0027c4-7c49-daa6-0908-5991c4284ad2",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"ail",
+						"gb0027c4-7c49-daa6-0908-5991c4284ad2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-SentInvitation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer txwi6KO65vKUqi0oQ7mdLO4GFWgb",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"email\":\"test.invit2203@yopmail.com\",\r\n   \"invitationId\":\"Q0H2S7Z0E7S1Q4G2\",\r\n   \"redirectUrl\":\"https://uatbfo22-secommunities.cs197.force.com/identity/userregistrationwork?app=mySchneiderWeb\",\r\n   \"appName\": \"SchneiderElectricExchange\",\r\n   \"languageCode\":\"en\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/invitation",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"invitation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-LogicalGroupInvite",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer txwi6KO65vKUqi0oQ7mdLO4GFWgb",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"firstName\" : \"test\",\r\n\"lastName\" : \"PRMUser\",\r\n\"email\" : \"testprmlgi_1@yopmail.com\",\r\n\"appName\" : \"IDMSWork\",\r\n\"language\" : \"en\",\r\n\"country\" : \"IN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/logicalinvitation",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"logicalinvitation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put-Users-FederatedId-Truststatus",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer txwi6KO65vKUqi0oQ7mdLO4GFWgb",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"trustedAdminFederatedId\": \"gb00b4b0-8e02-1ffc-caf9-5cce8dee7e46\",\r\n\"newTrustedStatus\": \"REJECTED\",\r\n\"profileUpdateSource\": \"MySE\",\r\n\"rejectionReason\": \"INVALID_DATA\",\r\n\"rejectionComments\": \"SDFSDF\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/users/gb00b72a-89d7-aeee-9f49-b9e4a47eebb8/truststatus",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users",
+						"gb00b72a-89d7-aeee-9f49-b9e4a47eebb8",
+						"truststatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch-Users",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00Dg0000006I0pD!AR4AQMcVSq3S3c71cM7RyxmY_EW01.95YDxB8BoDUSd624LdHIDEQUL3a9gl9PAKDzgo1QrQDiTvk4yqv0c4wNR.qgtY3qSP",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer cI7Lvr6Ha9V9FoBXEheafGJuiHcd",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salutation\": \"Z001\",\r\n    \"profileLastUpdateSource\": \"IDMSWork\",\r\n    \"firstName\": \"test\",\r\n    \"middleName\": \"apigee\",\r\n    \"lastName\": \"apigeeNov01\",\r\n    \"countryCode\": \"IN\",\r\n    \"languageCode\": \"en\",\r\n    \"emailOptIn\": \"Y\",\r\n    \"aboutMe\": \"test update user\",\r\n    \"street\": \"Bakers street\",\r\n    \"city\": \"New york\",\r\n    \"zipCode\": \"0001\",\r\n    \"stateOrProvinceCode\": \"07\",\r\n    \"county\": \"Newyork\",\r\n    \"pOBox\": \"741111\",\r\n    \"additionalAddress\": \"park view\",\r\n    \"suffix\": \"pvt ltd.\",\r\n    \"fax\": \"741-8529-451\"\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "base_url/v1/customer-journey/identity/user/users",
+					"protocol": "https",
+					"host": [
+						"api",
+						"qa",
+						"se",
+						"com"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
