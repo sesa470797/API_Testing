@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "ef955dc6-20ab-4fd5-ab86-778ebc2036bc",
+		"name": "API_testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11218423",
+		"_collection_link": "https://grey-zodiac-603001.postman.co/workspace/Global~874c2181-5617-4ba8-b26b-fc5c96db55db/collection/11218423-ef955dc6-20ab-4fd5-ab86-778ebc2036bc?action=share&source=collection_link&creator=11218423"
+	},
+	"item": [
+		{
+			"name": "APIGEE Token UAT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"access_token_apigee\", jsonData.access_token);\r",
+							"console.log('hi' + jsonData);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "GvGRuPUmDXVPnuW9kYR94XWWAm3goRqb",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "wgJNWGC1laRXDq3c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "grant_type",
+						"value": "client_credentials",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "GvGRuPUmDXVPnuW9kYR94XWWAm3goRqb",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "wgJNWGC1laRXDq3c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "HNbFvRTJ6CB1pFbWpqVRjeMs7j4a",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "UdpQXxoYWhUyETPaXvMG91NTbica",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/token",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-UsersExistwith Emails",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"email\" : \"nandu.uat@getnada.com\",\r\n \"withGlobalUsers\" : true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/v1/customer-journey/identity/user/users/exist",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users",
+						"exist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-UsersExistwith FedId",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"federatedId\" : \"gb0027c4-7c49-daa6-0908-5991c4284ad2\",\r\n \"withGlobalUsers\" : true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/v1/customer-journey/identity/user/users/exist",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users",
+						"exist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-Create Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salutation\": \"Z001\",\r\n    \"firstName\": \"test\",\r\n    \"middleName\": \"apigee\",\r\n    \"lastName\": \"apigeeNov01\",\r\n    \"countryCode\": \"IN\",\r\n    \"mobilePhone\": \"8867423553\",\r\n    \"email\": \"uatperfapi.1@yopmail.com\",\r\n    \"languageCode\": \"en\",\r\n    \"emailOptIn\": \"Y\",\r\n    \"aboutMe\": \"test update user\",\r\n    \"street\": \"Bakers street\",\r\n    \"city\": \"New york\",\r\n    \"zipCode\": \"0001\",\r\n    \"stateOrProvinceCode\": \"07\",\r\n    \"county\": \"Newyork\",\r\n    \"pOBox\": \"741111\",\r\n    \"additionalAddress\": \"park view\",\r\n    \"suffix\": \"pvt ltd.\",\r\n    \"fax\": \"741-8529-451\",\r\n    \"userContext\": \"@Work\",\r\n    \"registrationSource\":\"IDMSWork\",\r\n    \"currency\": \"USD\",\r\n    \"companyName\": \"IDMSAPIGEE123456\",\r\n    \"companyCountryCode\": \"US\",\r\n    \"companyAdditionalAddress\": \"Tower-B,UnitechInfospace\",\r\n    \"classLevel1\": \"OM\",\r\n    \"classLevel2\": \"OM1\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/v1/customer-journey/identity/user/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put-Update Users",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"salutation\": \"Z001\",\r\n    \"profileLastUpdateSource\": \"IDMSWork\",\r\n    \"firstName\": \"test\",\r\n    \"middleName\": \"apigee\",\r\n    \"lastName\": \"apigeeNov01\",\r\n    \"countryCode\": \"IN\",\r\n    \"languageCode\": \"en\",\r\n    \"emailOptIn\": \"Y\",\r\n    \"aboutMe\": \"test update user\",\r\n    \"street\": \"Bakers street\",\r\n    \"city\": \"New york\",\r\n    \"zipCode\": \"0001\",\r\n    \"stateOrProvinceCode\": \"07\",\r\n    \"county\": \"Newyork\",\r\n    \"pOBox\": \"741111\",\r\n    \"additionalAddress\": \"park view\",\r\n    \"suffix\": \"pvt ltd.\",\r\n    \"fax\": \"741-8529-451\",\r\n    \"userContext\": \"@Work\",\r\n    \"registrationSource\":\"IDMSWork\",\r\n    \"currency\": \"USD\",\r\n    \"companyName\": \"IDMSAPIGEE123456\",\r\n    \"companyCountryCode\": \"US\",\r\n    \"companyAdditionalAddress\": \"Tower-B,UnitechInfospace\",\r\n    \"classLevel1\": \"OM\",\r\n    \"classLevel2\": \"OM1\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/v1/customer-journey/identity/user/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Users profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CIAM-Authorization",
+						"value": "00D040000004eNs!AQoAQA4L8C0DmkmYZQx5cjAIDvgYks_HhKfcvSJ0ffDT96FfKNsFmbPESP8vPKeREjngJeECJ5zbCwvy7dmi7W1.819hjlOS",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer aCWvgSzMpSif6p2LU3MfgGArgpHm",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/v1/customer-journey/identity/user/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1",
+						"customer-journey",
+						"identity",
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
