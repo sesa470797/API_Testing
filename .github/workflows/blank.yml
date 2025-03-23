@@ -34,7 +34,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: '17.x'
+          node-version: '22.x'
 
       # Install newman and reporter
       - name: Install newman
